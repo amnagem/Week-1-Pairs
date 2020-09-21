@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MartianWeight
 {
@@ -22,7 +23,19 @@ namespace MartianWeight
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome to the Martian Weight Calculator!");
+            Console.Write("Enter Earth weights separated by spaces: ");
+            string earthWeight = Console.ReadLine();
+            string[] earthWeightSeparated = earthWeight.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            double[] earthWeightArray = new double[earthWeightSeparated.Length];
+            for (int i = 0; i < earthWeightSeparated.Length; i++)
+            {
+                earthWeightArray[i] = double.Parse(earthWeightSeparated[i]);
+                Console.WriteLine($"{earthWeightArray[i]} lbs. on Earth, is {earthWeightArray[i] * 0.378:0} lbs. on Mars.");
+            }
+            Console.WriteLine("");
+            
         }
     }
 }
+   
